@@ -10,123 +10,95 @@
 
 <body>
     <header>
-        <img src="assets/images/header.webp" alt="Transfer Learning">
-        <h1>Transfer Learning with TensorFlow and ML.NET</h1>
+        <img src="assets/images/header.webp" alt="Transfer Learning Header Image" class="header-image">
     </header>
 
-    <section class="introduction">
-        <h2>Introduction</h2>
-        <p>Welcome to the Transfer Learning with TensorFlow project! This project is designed to showcase how transfer
-            learning techniques can be applied to image classification tasks using TensorFlow and ML.NET. Transfer
-            learning is a powerful approach in machine learning that allows you to leverage pre-trained models on new,
-            specific tasks. This method saves time, computational resources, and the need for extensive datasets.</p>
-        <p>In this project, we fine-tune a pre-trained neural network model to classify images into custom categories.
-            This process involves minimal training compared to building a model from scratch, making it ideal for
-            developers and data scientists looking to build efficient and accurate models quickly.</p>
-    </section>
+    <main>
+        <section>
+            <h1>Transfer Learning with TensorFlow and ML.NET</h1>
+            <p>Welcome to the TransferLearningTF project! This project demonstrates how to leverage transfer learning
+                using TensorFlow within the ML.NET framework to perform image classification tasks. The goal is to take
+                advantage of pre-trained models and adapt them to classify new images, significantly reducing the time
+                and data required for training from scratch.</p>
+        </section>
 
-    <section class="how-it-works">
-        <h2>How It Works</h2>
-        <p>Transfer learning involves taking a model that has been pre-trained on a large dataset and adapting it to a
-            new, often smaller, dataset. This process is achieved by freezing the early layers of the model—those that
-            have learned generic features like edges, textures, and shapes—and retraining the later layers on your new
-            dataset. These later layers learn to recognize features specific to your task.</p>
-        <p>In this project, we utilize TensorFlow to perform transfer learning. The process begins by loading a
-            pre-trained model, such as MobileNet, which is known for its efficiency in mobile and embedded vision
-            applications. We then replace the final layer of this model with a new layer that matches the number of
-            categories in our custom dataset. The model is then trained, or fine-tuned, on this new data, allowing it to
-            learn to classify images into our specific categories.</p>
-        <p>Once the model is trained, we use ML.NET to integrate the TensorFlow model into a .NET application. ML.NET
-            simplifies the process of loading the model and performing inference, making it accessible for developers
-            working in the .NET ecosystem.</p>
-    </section>
+        <section>
+            <h2>Project Overview</h2>
+            <p>In this project, a pre-trained TensorFlow model is fine-tuned on a custom dataset to classify images into
+                different categories. By using ML.NET, the trained model can be integrated into .NET applications for
+                inference, making it a powerful tool for developers who want to implement machine learning without
+                needing deep expertise in TensorFlow or Python.</p>
+        </section>
 
-    <section class="project-structure">
-        <h2>Project Structure</h2>
-        <p>The project is organized into several key components:</p>
-        <ul>
-            <li><strong>Model Directory</strong>: Contains the TensorFlow model files, including the pre-trained model
-                and the fine-tuned model after training.</li>
-            <li><strong>Data Directory</strong>: Stores the dataset used for training and testing the model. The images
-                in this directory are organized by category, making it easy to feed into the training script.</li>
-            <li><strong>TrainingScript.py</strong>: A Python script that handles the training process using TensorFlow.
-                This script includes data preprocessing, augmentation, and fine-tuning of the pre-trained model.</li>
-            <li><strong>ModelInference.cs</strong>: A C# code file that demonstrates how to load the trained TensorFlow
-                model into an ML.NET pipeline and perform image classification (inference) on new images.</li>
-        </ul>
-        <p>This structure ensures that each part of the project is modular and easy to manage. Whether you're looking to
-            train the model, perform inference, or modify the dataset, the project layout is designed to be intuitive
-            and straightforward.</p>
-    </section>
+        <section>
+            <h2>Project Structure</h2>
+            <p>The project is organized into several key components:</p>
+            <ul>
+                <li><strong>Model Directory</strong>: Contains the TensorFlow model files, including the pre-trained
+                    model and the fine-tuned model after training.</li>
+                <li><strong>Data Directory</strong>: Stores the dataset used for training and testing the model. The
+                    images in this directory are organized by category, making it easy to feed into the training script.
+                </li>
+                <li><strong>TrainingScript.py</strong>: A Python script that handles the training process using
+                    TensorFlow. This script includes data preprocessing, augmentation, and fine-tuning of the
+                    pre-trained model.</li>
+                <li><strong>ModelInference.cs</strong>: A C# code file that demonstrates how to load the trained
+                    TensorFlow model into an ML.NET pipeline and perform image classification (inference) on new images.
+                </li>
+            </ul>
+            <p>This structure ensures that each part of the project is modular and easy to manage. Whether you're
+                looking to train the model, perform inference, or modify the dataset, the project layout is designed to
+                be intuitive and straightforward.</p>
+        </section>
 
-    <section class="code-explanation">
-        <h2>Code Explanation and Analysis</h2>
-        <p>The codebase is designed to be user-friendly, with clear separation between training and inference processes.
-            Below is a detailed explanation of the key files and their functionality:</p>
+        <section>
+            <h2>Getting Started</h2>
+            <p>To get started with this project, you'll need to set up your environment and download the necessary
+                dependencies. Follow the steps below to set up the project on your local machine:</p>
+            <ul>
+                <li><strong>Clone the Repository</strong>: Start by cloning the repository to your local machine using
+                    Git.</li>
+                <li><strong>Install Dependencies</strong>: Use pip to install the required Python libraries and NuGet to
+                    install the necessary .NET packages.</li>
+                <li><strong>Prepare the Dataset</strong>: Organize your images into the appropriate directory structure
+                    for training and testing.</li>
+                <li><strong>Train the Model</strong>: Run the Python script to fine-tune the pre-trained TensorFlow
+                    model on your dataset.</li>
+                <li><strong>Perform Inference</strong>: Use the C# code to load the trained model and perform inference
+                    on new images.</li>
+            </ul>
+        </section>
 
-        <h3>TrainingScript.py</h3>
-        <p>This Python script is the heart of the training process. It begins by loading the pre-trained model using
-            TensorFlow's high-level Keras API. The script then preprocesses the input images—resizing them to match the
-            input size of the pre-trained model and normalizing pixel values. Data augmentation techniques, such as
-            random rotations and flips, are applied to increase the diversity of the training data, which helps prevent
-            overfitting.</p>
-        <p>Once the data is prepared, the script replaces the final layer of the pre-trained model with a new layer that
-            corresponds to the number of categories in the dataset. The model is then compiled with a custom learning
-            rate and trained on the new dataset. After training, the fine-tuned model is saved to the `Model` directory
-            for later use.</p>
+        <section>
+            <h2>How It Works</h2>
+            <p>This project utilizes transfer learning, a technique where a model trained on a large dataset is
+                fine-tuned on a smaller, domain-specific dataset. The pre-trained model already knows how to recognize
+                general features (e.g., edges, textures), so it can quickly adapt to the new task with fewer training
+                examples.</p>
+            <p>Here's a breakdown of the workflow:</p>
+            <ul>
+                <li><strong>Data Preprocessing</strong>: The images are resized and normalized to match the input size
+                    expected by the pre-trained model.</li>
+                <li><strong>Data Augmentation</strong>: Techniques like rotation, flipping, and zooming are applied to
+                    artificially increase the size of the training dataset and improve model generalization.</li>
+                <li><strong>Model Fine-Tuning</strong>: The final layers of the pre-trained model are replaced with new
+                    layers suited to the specific classification task. The model is then trained on the new dataset.
+                </li>
+                <li><strong>Model Integration</strong>: The trained TensorFlow model is loaded into an ML.NET pipeline,
+                    allowing for seamless integration into .NET applications.</li>
+            </ul>
+        </section>
 
-        <h3>ModelInference.cs</h3>
-        <p>The `ModelInference.cs` file demonstrates how to perform inference using the trained model in a .NET
-            environment. The code begins by loading the saved TensorFlow model into an ML.NET pipeline. The pipeline is
-            configured to accept images, preprocess them in the same way as during training, and then pass them through
-            the model to get predictions.</p>
-        <p>The ML.NET framework handles the integration with TensorFlow, making it seamless to use a TensorFlow model in
-            a C# application. The output is the predicted category of the input image, along with a confidence score
-            that indicates the model's certainty in its prediction.</p>
-
-        <p>By separating the training and inference processes into different scripts and languages (Python for training
-            and C# for inference), this project demonstrates the flexibility of using TensorFlow models within various
-            environments. The use of ML.NET also highlights how .NET developers can leverage advanced machine learning
-            models without needing to delve deeply into TensorFlow or Python.</p>
-    </section>
-
-    <section class="usage">
-        <h2>How to Use the Project</h2>
-        <p>Using this project is straightforward. Follow the steps below to get started:</p>
-
-        <h3>Step 1: Clone the Repository</h3>
-        <p>Begin by cloning the repository to your local machine. This will give you access to all the files and
-            directories needed to run the project.</p>
-        <pre><code>git clone https://github.com/AAFBuniversityGit/TransferLearningTF
-cd TransferLearningTF</code></pre>
-
-        <h3>Step 2: Install Dependencies</h3>
-        <p>Install the required dependencies for both the Python training script and the .NET inference code. For
-            Python, you'll need TensorFlow and related libraries. For .NET, you'll need ML.NET and TensorFlow support
-            packages.</p>
-        <h4>For Python:</h4>
-        <pre><code>pip install tensorflow numpy pandas</code></pre>
-        <h4>For .NET:</h4>
-        <pre><code>dotnet add package Microsoft.ML
-dotnet add package Microsoft.ML.TensorFlow</code></pre>
-
-        <h3>Step 3: Train the Model</h3>
-        <p>With everything set up, you can now train the model. Place your images in the `Data` directory, organized by
-            category. Then, run the training script to fine-tune the model:</p>
-        <pre><code>python TrainingScript.py</code></pre>
-        <p>This script will process your images, train the model, and save the trained model to the `Model` directory.
-        </p>
-
-        <h3>Step 4: Perform Inference</h3>
-        <p>Once the model is trained, you can use the `ModelInference.cs` file to perform image classification on new
-            images. Open the C# project, load the model, and run the application:</p>
-        <pre><code>dotnet run</code></pre>
-        <p>The application will output the predicted category for each input image, allowing you to classify images
-            using your fine-tuned model.</p>
-    </section>
+        <section>
+            <h2>Conclusion</h2>
+            <p>This project illustrates the power of transfer learning by combining the strengths of TensorFlow and
+                ML.NET. It provides a flexible and efficient way to build image classifiers with minimal data and
+                effort, making it accessible to a wide range of developers and researchers.</p>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 TransferLearningTF Project. All rights reserved.</p>
+        <p>&copy; 2024 TransferLearningTF. All rights reserved.</p>
     </footer>
 </body>
 
